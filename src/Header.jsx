@@ -1,4 +1,4 @@
-
+import { BrowserRouter as Router, Routes, Route, Link, Outlet, NavLink } from "react-router-dom";
 
 export default function Header() {
     return (
@@ -12,16 +12,10 @@ export default function Header() {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <NavLink className="nav-link" to="/">Avaleht</NavLink>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                                <NavLink className="nav-link" to="/post">Lisa postitus</NavLink>
                             </li>
                         </ul>
                     </div>

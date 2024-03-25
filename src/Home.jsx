@@ -1,9 +1,11 @@
 
 
-export default function Home() {
+function Home() {
     return (
         <>
-           
+           <p>Avaleht todo</p>
         </>
       )
 }
+
+export default Home
