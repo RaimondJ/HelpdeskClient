@@ -8,6 +8,7 @@ import Header from './Header.jsx'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home.jsx'
 import Post from './Post.jsx'
+import Posts from './Posts.jsx'
 import NotFound from './NotFound.jsx'
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
       <Header />
       <Routes>
         <Route index element={<Home />} />
-        <Route path="post" element={<Post />} />
+        <Route path="posts" element={<Posts />} />
+        <Route path="newpost" element={<Post />} />
         <Route path='*' element={<NotFound />}/>
       </Routes>
     </BrowserRouter>
