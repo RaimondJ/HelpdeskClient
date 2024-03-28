@@ -39,7 +39,7 @@ function Posts() {
         <>
             <div className="container text-center">
                 <p className="p-3 fs-2">Pöördumiste nimekiri</p>
-                <div class="spinner-border m-5" id="loading" role="status"></div>
+                <div className="spinner-border m-5" id="loading" role="status"></div>
                 <div className="container px-4 overflow-hidden text-center">
                     <div id="alertBox" className='d-none'>
                         <div className="alert alert-success" role="alert">
