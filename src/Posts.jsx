@@ -11,13 +11,8 @@ function Posts() {
         axios.delete(url + "helpdesk/post/" + id)
             .then(res => {
                 setMessage(res.data.message);
-                for (let i = 0; i < posts.length; i++) {
-                    console.log(posts[i].id + ":" + id);
-                    if (posts[i].id == id) {
-                        posts.splice(i, 1);
-                        break;
-                    }
-                }
+                const updatedPosts = posts.filter(post => post.id !== id);
+                setPosts(updatedPosts);
                 document.getElementById("alertBox").classList.remove("d-none");
                 setTimeout(() => {
                     document.getElementById("alertBox").classList.add("d-none");
@@ -31,7 +26,11 @@ function Posts() {
     useEffect(() => {
         axios.get(url + "helpdesk/posts")
             .then(res => {
-                setPosts(res.data);
+                if (res.data.length != 0) {
+                    setPosts(res.data);
+                } else {
+                    document.getElementById("extText").classList.remove("d-none");
+                }
             })
     }, []);
 
@@ -47,6 +46,9 @@ function Posts() {
                     </div>
 
                     <div className="row gy-5">
+                        <div className="d-none" id="extText">
+                            <p className='fs-3'>Hetkel pole ühtegi aktiivset pöördumist.</p>
+                        </div>
                         {posts.map(post => (
                             <div className="col-6" key={post.id}>
                                 <div className={`p-3 border ${post.isExpiring ? 'bg-danger' : 'bg-light'}`}>
