@@ -9,7 +9,7 @@ function Home() {
   useEffect(() => {
     axios.get(url + "helpdesk/posts_count")
       .then(res => {
-        setPostsCount2(res.data);
+        setPostsCount2(res.data.total);
       })
   }, []);
   useEffect(() => {

@@ -7,8 +7,11 @@ function Post() {
     const [subject, setSubject] = useState("");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState(new Date())
-
+    const [info, setInfo] = useState("");
+    const [info2, setInfo2] = useState("");
     const handleNewPost = async (event) => {
+        setInfo("");
+        setInfo2("");
         event.preventDefault();
         const data = {
             subject: subject,
@@ -19,9 +22,9 @@ function Post() {
         axios.post(url + "helpdesk/post", data)
             .then(res => {
                 if (res.data.success) {
-
+                    setInfo(res.data.message);
                 } else {
-
+                    setInfo2(res.data.message);
                 }
             })
             .catch(error => {
@@ -31,6 +34,7 @@ function Post() {
 
     return (
         <>
+
             <div class="container-sm ">
                 <form onSubmit={handleNewPost}>
                     <p className="fs-1">Lisa uus pöördumine</p>
@@ -60,7 +64,7 @@ function Post() {
                     <div className="mb-3">
                         <label for="datePicker" class="form-label">Lahendamise tähtaeg</label><br></br>
                         <input
-                            type="date"
+                            type="datetime-local"
                             id="datePicker"
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
@@ -68,6 +72,13 @@ function Post() {
                     </div>
                     <button type="submit" class="btn btn-primary">Postita</button>
                 </form>
+                <br></br>
+                <div className={`${info == "" ? 'alert alert-success collapse' : 'alert alert-success show'}`} role="alert" style={{maxWidth:'500px'}}>
+                    {info}
+                </div>
+                <div className={`${info2 == "" ? 'alert alert-danger collapse' : 'alert alert-danger show'}`} role="alert" style={{maxWidth:'500px'}}>
+                    {info2}
+                </div>
             </div>
         </>
     )
