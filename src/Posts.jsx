@@ -26,6 +26,7 @@ function Posts() {
     useEffect(() => {
         axios.get(url + "helpdesk/posts")
             .then(res => {
+                document.getElementById("loading").remove();
                 if (res.data.length != 0) {
                     setPosts(res.data);
                 } else {
@@ -38,6 +39,7 @@ function Posts() {
         <>
             <div className="container text-center">
                 <p className="p-3 fs-2">Pöördumiste nimekiri</p>
+                <div class="spinner-border m-5" id="loading" role="status"></div>
                 <div className="container px-4 overflow-hidden text-center">
                     <div id="alertBox" className='d-none'>
                         <div className="alert alert-success" role="alert">

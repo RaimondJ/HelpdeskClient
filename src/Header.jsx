@@ -17,10 +17,10 @@ export default function Header() {
                                 <NavLink className="nav-link" to="/">Avaleht</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/posts">Postitused</NavLink>
+                                <NavLink className="nav-link" to="/posts">Pöördumised</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/newpost">Lisa postitus</NavLink>
+                                <NavLink className="nav-link" to="/newpost">Lisa pöördumine</NavLink>
                             </li>
                         </ul>
                     </div>
