@@ -3,23 +3,23 @@ import { BrowserRouter as Router, Routes, Route, Link, Outlet, NavLink } from "r
 export default function Header() {
     return (
         <>
-            <nav class="navbar navbar-expand-md bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand">
-                        <NavLink className="nav-link" to="/">Helpdesk</NavLink>
+            <nav className="navbar navbar-expand-md bg-body-tertiary">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="/">
+                        Helpdesk
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/">Avaleht</NavLink>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/posts">Postitused</NavLink>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/newpost">Lisa postitus</NavLink>
                             </li>
                         </ul>

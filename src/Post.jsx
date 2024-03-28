@@ -35,25 +35,25 @@ function Post() {
     return (
         <>
 
-            <div class="container-sm ">
+            <div className="container-sm ">
                 <form onSubmit={handleNewPost}>
                     <p className="fs-1">Lisa uus pöördumine</p>
-                    <div class="mb-3">
-                        <label for="subjectText" class="form-label">Teema</label>
+                    <div className="mb-3">
+                        <label htmlFor="subjectText" className="form-label">Teema</label>
                         <input
                             required
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id="subjectText"
                             placeholder="Lisa teema"
                             value={subject}
                             onChange={(e) => setSubject(e.target.value)}
                         />
                     </div>
-                    <div class="mb-3">
-                        <label for="descriptionText" class="form-label">Pöördumise kirjeldus</label>
+                    <div className="mb-3">
+                        <label htmlFor="descriptionText" className="form-label">Pöördumise kirjeldus</label>
                         <textarea
-                            class="form-control"
+                            className="form-control"
                             id="descriptionText"
                             rows="3"
                             placeholder="Lisa kirjeldus"
@@ -62,7 +62,7 @@ function Post() {
                         </textarea>
                     </div>
                     <div className="mb-3">
-                        <label for="datePicker" class="form-label">Lahendamise tähtaeg</label><br></br>
+                        <label htmlFor="datePicker" className="form-label">Lahendamise tähtaeg</label><br></br>
                         <input
                             type="datetime-local"
                             id="datePicker"
@@ -70,7 +70,7 @@ function Post() {
                             onChange={(e) => setDate(e.target.value)}
                         />
                     </div>
-                    <button type="submit" class="btn btn-primary">Postita</button>
+                    <button type="submit" className="btn btn-primary">Postita</button>
                 </form>
                 <br></br>
                 <div className={`${info == "" ? 'alert alert-success collapse' : 'alert alert-success show'}`} role="alert" style={{maxWidth:'500px'}}>

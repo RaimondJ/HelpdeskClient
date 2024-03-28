@@ -31,13 +31,13 @@ function Home() {
         <h1 className="p-2">Helpdesk</h1>
         <p className="p-3 fs-2">Kokku on tehtud {postsCount} postitust</p>
         <NavLink to="/posts">
-          <button type="button" class="btn btn-primary btn-lg btn-block">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
             Vaata kõiki pöördumisi
           </button>
         </NavLink>
         <br></br><br></br>
         <NavLink to="/newpost">
-          <button type="button" class="btn btn-primary btn-lg btn-block">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
             Lisa uus pöördumine
           </button>
         </NavLink>
