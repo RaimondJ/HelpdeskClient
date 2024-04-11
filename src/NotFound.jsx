@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react'
 export default function NotFound() {
   return (
     <>
-      <div class="container">
+      <div className="container">
         <p style={{ color: "black" }} className="fs-2">Soovitud lehte ei leitud :(</p>
         <NavLink to="/">
           <button type="button" className="btn btn-primary btn-lg btn-block">
-            Tagasi avalehel
+            Tagasi avalehele
           </button>
         </NavLink>
       </div>

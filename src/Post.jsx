@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 
 function Post() {
-
     const url = "https://localhost:7256/api/";
     const [subject, setSubject] = useState("");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState(new Date())
     const [info, setInfo] = useState("");
     const [info2, setInfo2] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const handleNewPost = async (event) => {
+        setIsLoading(true);
         setInfo("");
         setInfo2("");
         event.preventDefault();
@@ -19,7 +20,7 @@ function Post() {
             endDate: date
         };
         console.log(data);
-        axios.post(url + "helpdesk/post", data)
+        await axios.post(url + "helpdesk/post", data)
             .then(res => {
                 if (res.data.success) {
                     setInfo(res.data.message);
@@ -30,6 +31,7 @@ function Post() {
             .catch(error => {
 
             })
+        setIsLoading(false);
     }
 
     return (
@@ -72,11 +74,12 @@ function Post() {
                     </div>
                     <button type="submit" className="btn btn-primary">Postita</button>
                 </form>
+                <div className={`spinner-border m-5 ${!isLoading ? 'collapse' : 'show'}`} id="loading" role="status"></div>
                 <br></br>
-                <div className={`${info == "" ? 'alert alert-success collapse' : 'alert alert-success show'}`} role="alert" style={{maxWidth:'500px'}}>
+                <div className={`alert alert-success ${info == "" ? 'collapse' : 'show'}`} role="alert" style={{maxWidth:'500px'}}>
                     {info}
                 </div>
-                <div className={`${info2 == "" ? 'alert alert-danger collapse' : 'alert alert-danger show'}`} role="alert" style={{maxWidth:'500px'}}>
+                <div className={`alert alert-danger ${info2 == "" ? 'collapse' : 'show'}`} role="alert" style={{maxWidth:'500px'}}>
                     {info2}
                 </div>
             </div>

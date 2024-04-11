@@ -3,20 +3,26 @@ import axios from 'axios';
 import { Modal } from 'bootstrap'
 
 function Posts() {
-
     const url = "https://localhost:7256/api/";
     const [posts, setPosts] = useState([]);
     const [message, setMessage] = useState("");
+    const [timeOutId, setTimeOutId] = useState(null);
     const handleDeletePost = async (id) => {
+        if (timeOutId !== null) {
+            clearTimeout(timeOutId);
+        }
         axios.delete(url + "helpdesk/post/" + id)
             .then(res => {
                 setMessage(res.data.message);
                 const updatedPosts = posts.filter(post => post.id !== id);
                 setPosts(updatedPosts);
+                if (updatedPosts.length == 0) {
+                    document.getElementById("extText").classList.remove("d-none");
+                }
                 document.getElementById("alertBox").classList.remove("d-none");
-                setTimeout(() => {
+                setTimeOutId(setTimeout(() => {
                     document.getElementById("alertBox").classList.add("d-none");
-                }, 4000);
+                }, 4000));
             })
             .catch(error => {
 
